@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>codes.hubertwo.maven.pmd</groupId>
+    <artifactId>maven-pmd</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <url>https://hubert.codes</url>
+    <repositories>
+        <repository>
+            <id>hubert-codes-maven-jacoco</id>
+            <url>https://github.com/HubertWo/hubert-codes-maven-pmd</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <build>
+        <plugins>
+            <!-- Compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
+            <!-- PMD -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.16.0</version>
+                <configuration>
+                    <targetJdk>${maven.compiler.source}</targetJdk>
+                    <linkXref>true</linkXref>
+                    <minimumTokens>10</minimumTokens>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <reporting>
+        <!-- JXR plugin - adding links to source code in reports -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>
