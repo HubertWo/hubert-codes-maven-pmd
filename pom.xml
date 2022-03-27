@@ -35,14 +35,17 @@
                 <version>3.16.0</version>
                 <configuration>
                     <targetJdk>${maven.compiler.source}</targetJdk>
-                    <linkXref>true</linkXref>
+                    <!-- Change 'linkXref' to 'false' when you don't want to generate links
+                    in report (and don't want to use JXR plugin) and get rid of warning -->
+                    <linkXRef>true</linkXRef>
                     <minimumTokens>10</minimumTokens>
                 </configuration>
             </plugin>
         </plugins>
     </build>
     <reporting>
-        <!-- JXR plugin - adding links to source code in reports -->
+        <!-- JXR plugin - adds links to source code in reports.
+        This plugin is not needed if 'linkXref' is set to 'false' -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
